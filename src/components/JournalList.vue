@@ -1,5 +1,6 @@
 <template>
   <section>
+    <Journal v-if="journal.title != null" :journal="journal" />
     <ul>
       <h2>Samling</h2>
       <li
@@ -10,7 +11,6 @@
         {{ journal.title }} || {{ journal.date }}
       </li>
     </ul>
-    <Journal v-if="journal.title != null" :journal="journal" />
   </section>
 </template>
 
@@ -47,10 +47,12 @@ export default {
 section {
   display: flex;
   flex-flow: row nowrap;
+
   width: 100vw;
   justify-content: space-evenly;
 }
 ul {
+  order: 1;
   width: 35%;
   padding: 5px;
 }

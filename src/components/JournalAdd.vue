@@ -1,13 +1,20 @@
 <template>
   <section>
     <form @submit="handleSubmit">
-      <label for="title">Rubrik: </label>
-      <input type="text" v-model="post.title" id="title" />
-      <label for="date">Datum: </label>
+      <h4>Ny tanke:</h4>
+      <input
+        type="text"
+        v-model="post.title"
+        id="title"
+        placeholder="Rubrik..."
+      />
       <input type="date" v-model="post.date" id="date" />
-      <label for="text">Text: </label>
-      <input type="text" v-model="post.text" id="text" />
-      <button>Spara</button>
+      <textarea
+        v-model="post.text"
+        id="text"
+        placeholder="Skriv din text här..."
+      />
+      <button class="btn-save">Spara</button>
     </form>
   </section>
 </template>
@@ -28,4 +35,34 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+form {
+  display: flex;
+  flex-flow: row wrap;
+  border: 1px solid black;
+  padding: 10px;
+  justify-content: center;
+  max-width: 100%;
+}
+h4 {
+  margin: 5px;
+  width: 95%;
+}
+
+#title,
+#date {
+  width: 45%;
+  margin: 5px;
+}
+
+#text {
+  width: 93%;
+  height: 90px;
+  margin: 5px;
+}
+
+.btn-save {
+  margin: 5px;
+  width: 94%;
+}
+</style>

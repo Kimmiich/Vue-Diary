@@ -2,8 +2,8 @@
   <div id="app">
     <header>
       <h1>Mina samlade tankar!</h1>
-      <button @click="onClick">
-        {{ clicked === true ? 'Stäng' : 'Lägg till' }}
+      <button class="btn-expand" @click="onClick">
+        {{ clicked === true ? 'Stäng' : '+ Ny tanke' }}
       </button>
     </header>
     <JournalAdd :post="journal" @save="handleSubmit" v-if="clicked === true" />
@@ -58,6 +58,7 @@ export default {
         // console.log('Added post: ', getSaved);
       }
       this.journals.push(newPost);
+      this.journal = {};
     },
   },
 };
@@ -66,7 +67,18 @@ export default {
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
+  letter-spacing: 0.2px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+h1 {
+  text-align: center;
+}
+
+.btn-expand {
+  margin-left: 85%;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
 }
 </style>

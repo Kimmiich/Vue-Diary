@@ -16,8 +16,22 @@ export default {
 
 <style>
 article {
+  order: 2;
+  padding: 15px;
   margin-top: 20px;
   width: 50%;
   border: 1px solid black;
+}
+h3 {
+  font-size: 1.4em;
+  margin: 0px;
+  text-decoration: underline;
+}
+h6 {
+  margin: 0px;
+  padding-left: 2px;
+}
+p {
+  font-style: italic;
 }
 </style>
