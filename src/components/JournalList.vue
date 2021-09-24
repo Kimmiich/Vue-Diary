@@ -1,16 +1,16 @@
 <template>
   <section>
-    <h2>Inlägg</h2>
-    <Journal v-if="journal.title != null" :journal="journal" />
     <ul>
+      <h2>Samling</h2>
       <li
-        v-for="(journal, index) in journals"
+        v-for="(journal, index) in sort(journals)"
         :key="index"
         @click="getJournal(journal)"
       >
         {{ journal.title }} || {{ journal.date }}
       </li>
     </ul>
+    <Journal v-if="journal.title != null" :journal="journal" />
   </section>
 </template>
 
@@ -31,9 +31,8 @@ export default {
   methods: {
     sort(array) {
       if (array != null) {
-        return array.sort((a, b) => {
+        return array.slice().sort((a, b) => {
           return new Date(b.date) - new Date(a.date);
-          //Vrf blir det en infinite loop med denna funktion? Kallar på den i li element journal in sort(journals)
         });
       }
     },
@@ -45,6 +44,16 @@ export default {
 </script>
 
 <style>
+section {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100vw;
+  justify-content: space-evenly;
+}
+ul {
+  width: 35%;
+  padding: 5px;
+}
 li {
   list-style: none;
   cursor: pointer;

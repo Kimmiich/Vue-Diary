@@ -16,7 +16,8 @@ export default {
 
 <style>
 article {
-  max-width: 500px;
+  margin-top: 20px;
+  width: 50%;
   border: 1px solid black;
 }
 </style>

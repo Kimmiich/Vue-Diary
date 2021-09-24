@@ -6,7 +6,6 @@
         {{ clicked === true ? 'Stäng' : 'Lägg till' }}
       </button>
     </header>
-
     <JournalAdd :post="journal" @save="handleSubmit" v-if="clicked === true" />
     <JournalList :journals="journals" />
   </div>
@@ -69,7 +68,5 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
 }
 </style>
