@@ -20,7 +20,7 @@ export default {
   data() {
     return {
       journal: {},
-      journals: [],
+      journals: [{ title: 'Familjen', date: '2021-09-23', text: 'sdvv' }],
       clicked: false,
     };
   },
@@ -45,12 +45,12 @@ export default {
         text: evt.target.text.value,
       };
 
-      // console.log('Formulär sparat: ', newPost);
+      console.log('Formulär sparat: ', newPost);
 
       if (localStorage.getItem('Journal') === null) {
         localStorage.setItem('Journal', JSON.stringify(this.journals));
-
         // console.log('saved to empty: ', journal);
+        return;
       } else {
         let getSaved = JSON.parse(localStorage.getItem('Journal'));
         getSaved.push(newPost);
